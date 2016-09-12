@@ -1,0 +1,3 @@
+var _elm_lang$elm_architecture_tutorial$Main$main = {
+	main: _elm_lang$html$Html$text('Hello World')
+};
