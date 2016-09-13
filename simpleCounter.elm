@@ -1,4 +1,4 @@
-import Html exposing (Html, button, div, text)
+import Html exposing (Html, button, div, text, p)
 import Html.App as App
 import Html.Events exposing (onClick)
 
@@ -24,7 +24,7 @@ model =
 -- Update
 
 
-type Msg = Increment | Decrement
+type Msg = Increment | Decrement | Reset
 
 update : Msg -> Model -> Model
 update msg model =
@@ -35,6 +35,10 @@ update msg model =
         Decrement ->
             model - 1
 
+        Reset ->
+            0
+
+
 
 
 
@@ -43,7 +47,11 @@ update msg model =
 view : Model -> Html Msg
 view model = 
     div []
-    [ button [ onClick Decrement ] [ text "-" ]
+    [ p [] []
+    , button [ onClick Decrement ] [ text "-" ]
     , div [] [ text (toString model) ]
     , button [ onClick Increment ] [ text "+" ]
+    , p [] []
+    , button [ onClick Reset ] [ text "Reset" ]
+    , p [] [ text "Hello World"]
     ]
