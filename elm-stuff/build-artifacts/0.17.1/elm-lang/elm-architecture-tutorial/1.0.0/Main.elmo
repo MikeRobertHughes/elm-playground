@@ -1,3 +1,93 @@
+var _elm_lang$elm_architecture_tutorial$Main$incrementAll2 = _elm_lang$core$List$map(
+	function (c) {
+		return c + 1;
+	});
+var _elm_lang$elm_architecture_tutorial$Main$incrementAll = function (list) {
+	return A2(
+		_elm_lang$core$List$map,
+		function (n) {
+			return n + 1;
+		},
+		list);
+};
+var _elm_lang$elm_architecture_tutorial$Main$multiply = F2(
+	function (a, b) {
+		return a * b;
+	});
+var _elm_lang$elm_architecture_tutorial$Main$square = function (a) {
+	return A2(_elm_lang$elm_architecture_tutorial$Main$multiply, a, a);
+};
+var _elm_lang$elm_architecture_tutorial$Main$productOfSquares = F2(
+	function (a, b) {
+		return A2(
+			_elm_lang$elm_architecture_tutorial$Main$multiply,
+			_elm_lang$elm_architecture_tutorial$Main$square(a),
+			_elm_lang$elm_architecture_tutorial$Main$square(b));
+	});
 var _elm_lang$elm_architecture_tutorial$Main$main = {
-	main: _elm_lang$html$Html$text('Hello World')
+	main: A2(
+		_elm_lang$html$Html$p,
+		_elm_lang$core$Native_List.fromArray(
+			[]),
+		_elm_lang$core$Native_List.fromArray(
+			[
+				_elm_lang$html$Html$text(
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					'3 x 5    = ',
+					_elm_lang$core$Basics$toString(
+						A2(_elm_lang$elm_architecture_tutorial$Main$multiply, 3, 5)))),
+				A2(
+				_elm_lang$html$Html$br,
+				_elm_lang$core$Native_List.fromArray(
+					[]),
+				_elm_lang$core$Native_List.fromArray(
+					[])),
+				_elm_lang$html$Html$text(
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					'4²       = ',
+					_elm_lang$core$Basics$toString(
+						_elm_lang$elm_architecture_tutorial$Main$square(4)))),
+				A2(
+				_elm_lang$html$Html$br,
+				_elm_lang$core$Native_List.fromArray(
+					[]),
+				_elm_lang$core$Native_List.fromArray(
+					[])),
+				_elm_lang$html$Html$text(
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					'2² x 3²  = ',
+					_elm_lang$core$Basics$toString(
+						A2(_elm_lang$elm_architecture_tutorial$Main$productOfSquares, 2, 3)))),
+				A2(
+				_elm_lang$html$Html$br,
+				_elm_lang$core$Native_List.fromArray(
+					[]),
+				_elm_lang$core$Native_List.fromArray(
+					[])),
+				_elm_lang$html$Html$text(
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					'incrementAll [1, 2, 3] = ',
+					_elm_lang$core$Basics$toString(
+						_elm_lang$elm_architecture_tutorial$Main$incrementAll(
+							_elm_lang$core$Native_List.fromArray(
+								[1, 2, 3]))))),
+				A2(
+				_elm_lang$html$Html$br,
+				_elm_lang$core$Native_List.fromArray(
+					[]),
+				_elm_lang$core$Native_List.fromArray(
+					[])),
+				_elm_lang$html$Html$text(
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					'incrementAll2 [1, 2, 3] = ',
+					_elm_lang$core$Basics$toString(
+						_elm_lang$elm_architecture_tutorial$Main$incrementAll2(
+							_elm_lang$core$Native_List.fromArray(
+								[1, 2, 3])))))
+			]))
 };
