@@ -1,19 +1,17 @@
 var _elm_lang$elm_architecture_tutorial$Main$update = F2(
 	function (msg, model) {
 		var _p0 = msg;
-		switch (_p0.ctor) {
-			case 'Increment':
-				return model + 1;
-			case 'Decrement':
-				return model - 1;
-			default:
-				return 0;
-		}
+		return _elm_lang$core$Native_Utils.update(
+			model,
+			{content: _p0._0});
 	});
-var _elm_lang$elm_architecture_tutorial$Main$model = 0;
-var _elm_lang$elm_architecture_tutorial$Main$Reset = {ctor: 'Reset'};
-var _elm_lang$elm_architecture_tutorial$Main$Decrement = {ctor: 'Decrement'};
-var _elm_lang$elm_architecture_tutorial$Main$Increment = {ctor: 'Increment'};
+var _elm_lang$elm_architecture_tutorial$Main$model = {content: ''};
+var _elm_lang$elm_architecture_tutorial$Main$Model = function (a) {
+	return {content: a};
+};
+var _elm_lang$elm_architecture_tutorial$Main$Change = function (a) {
+	return {ctor: 'Change', _0: a};
+};
 var _elm_lang$elm_architecture_tutorial$Main$view = function (model) {
 	return A2(
 		_elm_lang$html$Html$div,
@@ -22,21 +20,14 @@ var _elm_lang$elm_architecture_tutorial$Main$view = function (model) {
 		_elm_lang$core$Native_List.fromArray(
 			[
 				A2(
-				_elm_lang$html$Html$p,
-				_elm_lang$core$Native_List.fromArray(
-					[]),
-				_elm_lang$core$Native_List.fromArray(
-					[])),
-				A2(
-				_elm_lang$html$Html$button,
+				_elm_lang$html$Html$input,
 				_elm_lang$core$Native_List.fromArray(
 					[
-						_elm_lang$html$Html_Events$onClick(_elm_lang$elm_architecture_tutorial$Main$Decrement)
+						_elm_lang$html$Html_Attributes$placeholder('Text to reverse'),
+						_elm_lang$html$Html_Events$onInput(_elm_lang$elm_architecture_tutorial$Main$Change)
 					]),
 				_elm_lang$core$Native_List.fromArray(
-					[
-						_elm_lang$html$Html$text('-')
-					])),
+					[])),
 				A2(
 				_elm_lang$html$Html$div,
 				_elm_lang$core$Native_List.fromArray(
@@ -44,41 +35,7 @@ var _elm_lang$elm_architecture_tutorial$Main$view = function (model) {
 				_elm_lang$core$Native_List.fromArray(
 					[
 						_elm_lang$html$Html$text(
-						_elm_lang$core$Basics$toString(model))
-					])),
-				A2(
-				_elm_lang$html$Html$button,
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_elm_lang$html$Html_Events$onClick(_elm_lang$elm_architecture_tutorial$Main$Increment)
-					]),
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_elm_lang$html$Html$text('+')
-					])),
-				A2(
-				_elm_lang$html$Html$p,
-				_elm_lang$core$Native_List.fromArray(
-					[]),
-				_elm_lang$core$Native_List.fromArray(
-					[])),
-				A2(
-				_elm_lang$html$Html$button,
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_elm_lang$html$Html_Events$onClick(_elm_lang$elm_architecture_tutorial$Main$Reset)
-					]),
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_elm_lang$html$Html$text('Reset')
-					])),
-				A2(
-				_elm_lang$html$Html$p,
-				_elm_lang$core$Native_List.fromArray(
-					[]),
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_elm_lang$html$Html$text('Hello World')
+						_elm_lang$core$String$reverse(model.content))
 					]))
 			]));
 };
